@@ -137,8 +137,8 @@ def _get_baseline_metric(df, model_type, metric="stereotype_score"):
         "albert": "AlbertForMaskedLM",
         "roberta": "RobertaForMaskedLM",
         "gpt2": "GPT2LMHeadModel",
-        #"gptneox": "GPTNeoXForCausalLM",
-        "gptneox": "QuantizedGPTNeoXForCausalLM",
+        "gptneox": "GPTNeoXForCausalLM",
+        # "gptneox": "QuantizedGPTNeoXForCausalLM",
     }
     baseline = model_type_to_baseline[model_type]
     return df[df["model"] == baseline][metric].values[0]
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     print(f" - bias_type: {args.bias_type}")
 
     # Load the StereoSet model scores.
-    with open(f"{args.persistent_dir}/results/stereoset/results.json", "r") as f:
+    with open(f"{args.persistent_dir}/results.json", "r") as f:
         results = json.load(f)
 
     records = []
@@ -230,7 +230,6 @@ if __name__ == "__main__":
                 "rev": revision,
             }
         )
-
     df = pd.DataFrame.from_records(records)
 
     # Label model type (e.g., "bert").
