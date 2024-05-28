@@ -15,7 +15,13 @@ cd cse481n-project
 python -m pip install -e .
 ```
 ## Running on single CPU/GPU
-To run an experiment, find its corresponding script in ``batch_jobs`` and comment out the ``sbatch`` command and all its arguments down to the ``python`` command. Then, add ``./`` before the ``python`` command and run the script. Additionally, modify the ``persistent_dir`` variable in ``./batch_jobs/_experiment_configuration.sh`` accordingly. Refer to ``./batch_jobs/crows_base.sh`` as an example.
+1. Modify the ``persistent_dir`` variable in ``./batch_jobs/_experiment_configuration.sh`` accordingly
+2. Choose an experiment's script in ``batch_jobs``
+3. Comment out the ``sbatch`` command and all its arguments down to before the ``python`` command
+4. Add ``./`` before the ``python`` command
+5. Run the script (e.g. the command ``./batch_jobs/crows_base.sh`` runs the experiments for base models on Crow-S)
+
+Scripts for experiments that were not reproduced are not guaranteed to run and may require additional modifications. Refer to ``./batch_jobs/crows_base.sh`` as an example.
 
 ## Running on an HPC Cluster
 We provide scripts for running all of the experiments presented in the paper on a SLURM cluster in `batch_jobs`.
