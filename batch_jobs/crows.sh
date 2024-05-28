@@ -11,14 +11,14 @@ for model in ${masked_lm_models[@]}; do
         experiment_id="crows_m-${model}_c-${model_to_model_name_or_path[${model}]}_t-${bias_type}"
         if [ ! -f "${persistent_dir}/results/crows/${experiment_id}.json" ]; then
             echo ${experiment_id}
-            sbatch \
-                --gres=gpu:32gb:1 \
-                --time ${time[${model_to_model_name_or_path[${model}]}]} \
-                --partition=long \
-                -J ${experiment_id} \
-                -o $HOME/scratch/debias-eval/logs/%x.%j.out \
-                -e $HOME/scratch/debias-eval/logs/%x.%j.err \
-                python_job.sh experiments/crows.py \
+            # sbatch \
+            #     --gres=gpu:32gb:1 \
+            #     --time ${time[${model_to_model_name_or_path[${model}]}]} \
+            #     --partition=long \
+            #     -J ${experiment_id} \
+            #     -o $HOME/scratch/debias-eval/logs/%x.%j.out \
+            #     -e $HOME/scratch/debias-eval/logs/%x.%j.err \
+                ./python_job.sh experiments/crows.py \
                     --model ${model} \
                     --model_name_or_path ${model_to_model_name_or_path[${model}]} \
                     --bias_type ${bias_type}
@@ -32,14 +32,14 @@ for model in ${causal_lm_models[@]}; do
         experiment_id="crows_m-${model}_c-${model_to_model_name_or_path[${model}]}_t-${bias_type}"
         if [ ! -f "${persistent_dir}/results/crows/${experiment_id}.json" ]; then
             echo ${experiment_id}
-            sbatch \
-                --gres=gpu:32gb:1 \
-                --time ${time[${model_to_model_name_or_path[${model}]}]} \
-                --partition=long \
-                -J ${experiment_id} \
-                -o $HOME/scratch/debias-eval/logs/%x.%j.out \
-                -e $HOME/scratch/debias-eval/logs/%x.%j.err \
-                python_job.sh experiments/crows.py \
+            # sbatch \
+            #     --gres=gpu:32gb:1 \
+            #     --time ${time[${model_to_model_name_or_path[${model}]}]} \
+            #     --partition=long \
+            #     -J ${experiment_id} \
+            #     -o $HOME/scratch/debias-eval/logs/%x.%j.out \
+            #     -e $HOME/scratch/debias-eval/logs/%x.%j.err \
+                ./python_job.sh experiments/crows.py \
                     --model ${model} \
                     --model_name_or_path ${model_to_model_name_or_path[${model}]} \
                     --bias_type ${bias_type}
