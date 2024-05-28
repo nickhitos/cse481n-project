@@ -169,7 +169,7 @@ class CrowSPairsRunner:
                         "score": pair_score,
                         "stereo_antistereo": direction,
                         "bias_type": bias,
-                    })],
+                    }, index=[0])],
                     ignore_index=True,
                 )
 

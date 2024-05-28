@@ -2,7 +2,7 @@
 # Variables for running batch jobs.
 
 # Directory where all data and results are written.
-persistent_dir="$HOME/Projects/courses/cse481n/cse481n-project"
+persistent_dir="/homes/iws/nickhit3/cse481n-project"
 
 bias_types=(
     "gender"

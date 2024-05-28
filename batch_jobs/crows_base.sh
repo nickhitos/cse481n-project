@@ -11,14 +11,14 @@ for model in ${masked_lm_base_models[@]}; do
         experiment_id="crows_m-${model}_c-${model_to_model_name_or_path[${model}]}_t-${bias_type}"
         if [ ! -f "${persistent_dir}/results/crows/${experiment_id}.json" ]; then
             echo ${experiment_id}
-            sbatch \
-                --gres=gpu:nvidia_a100-pcie-40gb:1 \
-                --time ${time[${model_to_model_name_or_path[${model}]}]} \
-                -J ${experiment_id} \
-                -o ${persistent_dir}/logs/%x.%j.out \
-                -e ${persistent_dir}/logs/%x.%j.err \
-                -n 1 -c 16 --mem=32G \
-                python_job.sh experiments/crows.py \
+            # sbatch \
+            #     --gres=gpu:nvidia_a100-pcie-40gb:1 \
+            #     --time ${time[${model_to_model_name_or_path[${model}]}]} \
+            #     -J ${experiment_id} \
+            #     -o ${persistent_dir}/logs/%x.%j.out \
+            #     -e ${persistent_dir}/logs/%x.%j.err \
+            #     -n 1 -c 16 --mem=32G \
+                ./python_job.sh experiments/crows.py \
                     --model ${model} \
                     --model_name_or_path ${model_to_model_name_or_path[${model}]} \
                     --bias_type ${bias_type}
