@@ -1,2 +1,0 @@
-=== RESULT [GPT2LMHeadModel] ===
-Perplexity: 30.158052444458008
