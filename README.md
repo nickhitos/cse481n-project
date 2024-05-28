@@ -1,19 +1,21 @@
-# Understanding the Effect of Model Compression on Social Bias in Large Language Models
-> Gustavo Gonçalves and Emma Strubell
+# Reproduction Report: Understanding the Effect of Model Compression on Social Bias in Large Language Models
+> Jessica Colleran, Nicolas Hitosis, and Aidan Jay
 
-This is the official Repo for the EMNLP 2023 Paper - "Understanding the Effect of Model Compression on Social Bias in Large Language Models".
+This is the official Repo for the 2024 CSE481N Reproduction Paper - "Reproduction Report: Understanding the Effect of Model Compression on Social Bias in Large Language Models".
 
-We thank the [BiasBench](https://github.com/McGill-NLP/bias-bench) authors for making their codebase available, as we use it as a starting point for our work.
+We thank the [Understanding the Effect of Model Compression on Social Bias in Large Language Models](https://github.com/gsgoncalves/EMNLP2023_llm_compression_and_social_bias) authors for making their codebase available, as we use it as a starting point for our work.
 
 Below you will find a short version of the original repo instructions to run the code for our experiments.
 
 ## Install
 ```bash
 mkdir projects && cd projects
-git clone https://github.com/gsgoncalves/EMNLP2023_llm_compression_and_social_bias.git
-cd EMNLP2023_llm_compression_and_social_bias
+git clone https://github.com/nickhitos/cse481n-project.git
+cd cse481n-project
 python -m pip install -e .
 ```
+## Running on single CPU/GPU
+To run an experiment, find its corresponding script in ``batch_jobs`` and comment out the ``sbatch`` command and all its arguments up to the ``python`` command. Then, add ``./`` before the ``python`` command and run the script. Refer to ``crows.sh`` as an example.
 
 ## Running on an HPC Cluster
 We provide scripts for running all of the experiments presented in the paper on a SLURM cluster in `batch_jobs`.
@@ -43,24 +45,17 @@ This repository makes use of code from the following repositories:
 * [On Measuring Social Biases in Sentence Encoders](https://github.com/w4ngatang/sent-bias)
 * [Null It Out: Guarding Protected Attributes by Iterative Nullspace Projection](https://github.com/shauli-ravfogel/nullspace_projection)
 * [Towards Understanding and Mitigating Social Biases in Language Models](https://github.com/pliang279/lm_bias)
+* [Understanding the Effect of Model Compression on Social Bias in Large Language Models](https://github.com/gsgoncalves/EMNLP2023_llm_compression_and_social_bias)
 
 We thank the authors for making their code publicly available.
 
 ## Citation
 ```
- @inproceedings{goncalves-strubell-2023-understanding,
-    title = "Understanding the Effect of Model Compression on Social Bias in Large Language Models",
-    author = "Gon{\c{c}}alves, Gustavo  and
-      Strubell, Emma",
-    editor = "Bouamor, Houda  and
-      Pino, Juan  and
-      Bali, Kalika",
-    booktitle = "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
-    month = dec,
-    year = "2023",
-    address = "Singapore",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2023.emnlp-main.161",
-    pages = "2663--2675",
+ @inproceedings{colleran-hitosis-jay-2024-understanding,
+    title = "Reproduction Report: Understanding the Effect of Model Compression on Social Bias in Large Language Models",
+    author = "Colleran, Jessica  and
+      Hitosis, Nicolas and Jay, Aidan",
+    month = jun,
+    year = "2024",
 }
 ```
