@@ -14,7 +14,7 @@ git clone https://github.com/nickhitos/cse481n-project.git
 cd cse481n-project
 python -m pip install -e .
 ```
-## Running on single CPU/GPU
+## Running on CPU/GPU
 1. Modify the ``persistent_dir`` variable in ``./batch_jobs/_experiment_configuration.sh`` accordingly
 2. Choose an experiment's script in ``batch_jobs``
 3. Comment out the ``sbatch`` command and all its arguments down to before the ``python`` command
